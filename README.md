@@ -114,8 +114,8 @@ install.packages('<path_to_archive>') # for a tar.gz archive for example
 
 - Il existe 3 formats de tableaux :
   - `data.frame` -> librarie de base
-  - [`tibble`](/cheatsheet/dplyr.pdf) -> syntaxe la plus claire et lisible. Fais partie de l'écosystème `dplyr`, `tidyverse`
-  - [`data.table`](/cheatsheet/datatable.pdf) -> La librairie la plus **rapide** et de très loin. Parfaite pour de très gros volume de données
+  - [**`tibble`**](/cheatsheet/dplyr.pdf) -> syntaxe la plus claire et lisible. Fais partie de l'écosystème `dplyr`, `tidyverse`
+  - [**`data.table`**](/cheatsheet/datatable.pdf) -> La librairie la plus **rapide** et de très loin. Parfaite pour de très gros volume de données
 
 Utilisez tout sauf `data.frame` qui a une syntaxe proche de pandas mais est ni clair, et avec de pauvres performances.
 
