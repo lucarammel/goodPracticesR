@@ -8,8 +8,6 @@
 4. [Gestion des Paquets](#gestion-des-paquets)
    - 4.1 [Installation et Chargement des Paquets](#installation-et-chargement-des-paquets)
 5. [Manipulation et Analyse des Données](#manipulation-et-analyse-des-données)
-   - 5.1 [Utilisation du tidyverse](#utilisation-du-tidyverse)
-   - 5.2 [Manipulation Efficace des Données](#manipulation-efficace-des-données)
 6. [Tests et Validation](#tests-et-validation)
    - 6.1 [Tests Unitaires avec testthat](#tests-unitaires-avec-testthat)
 7. [Collaborer avec Git et GitHub](#collaborer-avec-git-et-github)
@@ -46,7 +44,6 @@ project_name
 ```
 
 ```r
-
 # Pour créer un package R from scratch
 devtools::create("path/to/package_name")
 
