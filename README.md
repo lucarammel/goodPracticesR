@@ -25,7 +25,7 @@
 - **Pas de harcode !** -> Il génère des bugs, il empêche une bonne lecture du code, il empêche un débugage correcte, et en plus souvent on y trouve des mots de passe !!
 - **Utiliser un formatteur de code** -> Permet d'améliorer l'homogénéité du code et le rendre lisible.
 
-> Le package `styler` permet de formatter du code R.  
+> Le package [`styler`](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/) permet de formatter du code R.  
 
 > Pour stocker des variables sensibles on pourra utiliser le fichier `.Renviron` et faire appelle aux différentes variables via un `Sys.getenv('variable_name')`
 
@@ -111,6 +111,8 @@ calculate_mean <- function(x, na.rm = FALSE) {
 
 ```
 
+> Le @export est indispensable pour rendre la fonction accessible une fois le package chargé par l'utilisateur.
+
 ## Gestion des Paquets
 
 ### Installation et Chargement des Paquets
@@ -123,7 +125,7 @@ install.packages('<lib_name>') # for a CRAN available library
 install.packages('<path_to_archive>') # for a tar.gz archive for example
 ```
 
-> Pour ne pas avoir des interférences et soucis de compatabilités entre plusieurs projets. On utilisera [`renv`](https://rstudio.github.io/renv/articles/renv.html). L'outil de gestion des environnements virtuels sur R.>
+> Pour ne pas avoir des interférences et soucis de compatabilités entre plusieurs projets. On utilisera [`renv`](https://rstudio.github.io/renv/articles/renv.html). L'outil de gestion des environnements virtuels sur R.
 
 ## Manipulation et Analyse des Données
 
@@ -136,7 +138,7 @@ Utilisez tout sauf `data.frame` qui a une syntaxe proche de pandas certes mais e
 
 > **Notez** qu'il y des porosités entre les packages mais impliquent des changements de type de tableaux et une clarté appauvrie de la technologie utilisée !
 
-> Pour modifier le tableau en place et ne pas le réaffecter, on peut utiliser `%<>%` du package `magrittr`. Cela fonctionne pour n'importe quel autre type de variable
+> Pour modifier le tableau en place et ne pas le réaffecter, on peut utiliser `%<>%` du package `magrittr`. Cela fonctionne pour n'importe quel autre type de variable. Voir [ici](https://www.r-bloggers.com/2021/09/the-four-pipes-of-magrittr/) pour plus d'infos.
 
 Exemple :
 
@@ -179,6 +181,7 @@ test_that("add_numbers works correctly", {
 ```
 
 - Structurer les tests dans un projet.
+
 
 ## Collaborer avec Git et GitHub
 
