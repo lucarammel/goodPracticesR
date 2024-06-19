@@ -2,15 +2,16 @@
 
 ## Sommaire
 
-1. [Basic and overall](#basics-and-overall)
+1. [Du bon sens ..](#du-bon-sens)
 2. [Organisation d'un projet](#organisation-dun-projet)
 3. [Documentation des Fonctions avec roxygen2](#documentation-des-fonctions-avec-roxygen2)
 4. [Gestion des Paquets](#gestion-des-paquets)
    - 4.1 [Installation et Chargement des Paquets](#installation-et-chargement-des-paquets)
 5. [Manipulation et Analyse des Données](#manipulation-et-analyse-des-données)
-6. [Tests et Validation](#tests-et-validation)
+6. []
+7. [Tests et Validation](#tests-et-validation)
    - 6.1 [Tests Unitaires avec testthat](#tests-unitaires-avec-testthat)
-7. [Collaborer avec Git et GitHub](#collaborer-avec-git-et-github)
+8. [Collaborer avec Git et GitHub](#collaborer-avec-git-et-github)
    - 7.1 [Introdution à Github](#introduction-à-git)
 
 ## Du bon sens
@@ -22,6 +23,9 @@
 - **1 fonction  = 1 action** -> On splitte le code le plus possible en fonction pour le rendre lisible et maintenable !
 - **Pas de commentaire inutle** -> Les commentaires doivent apporter qqch, inutile de garder du code commenté ! Un code bien fait, n'a pas besoin de commentaire intempestif !
 - **Pas de harcode !** -> Il génère des bugs, il empêche une bonne lecture du code, il empêche un débugage correcte, et en plus souvent on y trouve des mots de passe !!
+- **Utiliser un formatteur de code** -> Permet d'améliorer l'homogénéité du code et le rendre lisible.
+
+> Le package `styler` permet de formatter du code R.  
 
 > Pour stocker des variables sensibles on pourra utiliser le fichier `.Renviron` et faire appelle aux différentes variables via un `Sys.getenv('variable_name')`
 
@@ -45,6 +49,8 @@ project_name
    └─ R              # Subdirectory for R scripts containing functions, classes, and other R code.
 ```
 
+Le package [`devtools`](https://devtools.r-lib.org/) permet de gérer tout le développement d'un package.
+
 ```r
 # Pour créer un package R from scratch
 devtools::create("path/to/package_name")
@@ -64,7 +70,12 @@ usethis::use_package('dependency_name')
 
 # Pour run tous les tests unitaires
 devtools::test()
+
+# Pour développer le package en chargeant toutes les fonctions : 
+devtools::load_all("path/to/package_name") 
 ```
+
+
 
 ## Documentation des Fonctions avec roxygen2
 
@@ -147,6 +158,8 @@ dt <- dt[, .(product_id, sales)] %>%
 
 > PS : L'opérateur `:=` pour déclarer une nouvelle colonne dans un tableau `data.table` affecte le tableau initial. Il ne retourne pas un nouvel objet.
 
+> Le soucis de ces syntaxes est que les noms des colonnes sont d'offices hardcodés et ne sont pas sous forme de variable. Pour se faire, on pourra utiliser `!!sym(var)` avec `dplyr` **et/ou** `get(var)` / `eval(var)` avec `data.table`
+
 ## Tests et Validation
 
 ### Tests Unitaires avec testthat
@@ -228,4 +241,4 @@ Git est un système de contrôle de version distribué qui permet de suivre les 
     git merge <branch1> <branch2>
     ```
 
-> Chaque branche est parfaitement indépendante du reste. On peut donc y faire ce qu'on veut sans influence sur les autres travaux. On veillerai donc à supprimer les parties du code qui nous interesse pas.
+> Chaque branche est parfaitement indépendante du reste. On peut donc y faire ce qu'on veut sans influence sur les autres travaux. On veillerai donc à supprimer les parties du code qui nous interesse pas
