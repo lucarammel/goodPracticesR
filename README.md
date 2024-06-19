@@ -11,10 +11,9 @@
 6. [Tests et Validation](#tests-et-validation)
    - 6.1 [Tests Unitaires avec testthat](#tests-unitaires-avec-testthat)
 7. [Collaborer avec Git et GitHub](#collaborer-avec-git-et-github)
-   - 7.1 [Gestion de Version](#gestion-de-version)
-   - 7.2 [Bonnes Pratiques de Collaboration](#bonnes-pratiques-de-collaboration)
+   - 7.1 [Introdution à Github](#introduction-à-git)
 
-## Du bon sens ..
+## Du bon sens
 
 - **Coder en anglais!**  ->  Pour éviter les charactères spéciaux
 - **Choisir une police!** -> `snake_case` ou `camelCase`
@@ -170,13 +169,63 @@ test_that("add_numbers works correctly", {
 
 ## Collaborer avec Git et GitHub
 
-### Gestion de Version
+L'utilisation de Git et GitHub est essentielle pour collaborer efficacement sur des projets de développement en R. Voici quelques bonnes pratiques pour gérer la version de votre code et collaborer avec votre équipe.
 
-- Introduction à Git.
-- Utilisation de GitHub pour la collaboration.
+### Introduction à Git
 
-### Bonnes Pratiques de Collaboration
+Git est un système de contrôle de version distribué qui permet de suivre les modifications apportées à un projet au fil du temps. Voici quelques commandes de base pour commencer avec Git :
 
-- Workflow de collaboration avec Git.
-- Revue de code et pull requests.
+1. **Initialiser un dépôt Git :**
 
+   ```bash
+   git init
+   ```
+
+2. **Cloner un dépot existant**
+
+   ```bash
+   git clone <url_du_dépôt>
+   ```
+
+3. **Création d'une branche de travail et se positioner dessus**
+
+    ```bash
+    git branch <branch> # Création
+    git checkout <branch> # Se positionner dessus 
+    ```
+
+4. **Ajouter des modifications pour une potentielle future sauvegarde**
+
+    ```bash
+    git add <fichier_ou_dossier>
+    ```
+
+5. **Sauvegarder les changements**
+
+    ```bash
+    git commit -m "Message du commit"
+    ```
+
+6. **Les sauvegarder sur le serveur**
+
+    ```bash
+    git pull origin <branche>
+    ```
+
+7. **Les récupérer depuis le serveur**
+
+    ```bash
+    git pull origin <branche>
+    ```
+
+8. **Fusionner deux branches**
+
+    On peut le faire après avoir push toutes les modifications sur le serveur, puis faire le `merge` depuis l'IHM de gitlab.
+
+    Sinon en local :
+
+    ```bash
+    git merge <branch1> <branch2>
+    ```
+
+> Chaque branche est parfaitement indépendante du reste. On peut donc y faire ce qu'on veut sans influence sur les autres travaux. On veillerai donc à supprimer les parties du code qui nous interesse pas.
