@@ -14,7 +14,7 @@
    - 7.1 [Gestion de Version](#gestion-de-version)
    - 7.2 [Bonnes Pratiques de Collaboration](#bonnes-pratiques-de-collaboration)
 
-## Basics and overall
+## Du bon sens ..
 
 - **Coder en anglais!**  ->  Pour éviter les charactères spéciaux
 - **Choisir une police!** -> `snake_case` ou `camelCase`
@@ -22,6 +22,9 @@
 - **Choisissez un nom de variable cohérent** -> On oublie les raccourcis, les abbréviations. Mieux vaut un nom long qu'un raccourci incompréhensible.
 - **1 fonction  = 1 action** -> On splitte le code le plus possible en fonction pour le rendre lisible et maintenable !
 - **Pas de commentaire inutle** -> Les commentaires doivent apporter qqch, inutile de garder du code commenté ! Un code bien fait, n'a pas besoin de commentaire intempestif !
+- **Pas de harcode !** -> Il génère des bugs, il empêche une bonne lecture du code, il empêche un débugage correcte, et en plus souvent on y trouve des mots de passe !!
+
+> Pour stocker des variables sensibles on pourra utiliser le fichier `.Renviron` et faire appelle aux différentes variables via un `Sys.getenv('variable_name')`
 
 ## Organisation d'un projet
 
@@ -110,6 +113,8 @@ install.packages('<lib_name>') # for a CRAN available library
 install.packages('<path_to_archive>') # for a tar.gz archive for example
 ```
 
+> Pour ne pas avoir des interférences et soucis de compatabilités entre plusieurs projets. On utilisera [`renv`](https://rstudio.github.io/renv/articles/renv.html). L'outil de gestion des environnements virtuels sur R.>
+
 ## Manipulation et Analyse des Données
 
 - Il existe 3 formats de tableaux :
@@ -117,9 +122,11 @@ install.packages('<path_to_archive>') # for a tar.gz archive for example
   - [**`tibble`**](/cheatsheet/dplyr.pdf) -> syntaxe la plus claire et lisible. Fais partie de l'écosystème `dplyr`, `tidyverse`
   - [**`data.table`**](/cheatsheet/datatable.pdf) -> La librairie la plus **rapide** et de très loin. Parfaite pour de très gros volume de données
 
-Utilisez tout sauf `data.frame` qui a une syntaxe proche de pandas mais est ni clair, et avec de pauvres performances.
+Utilisez tout sauf `data.frame` qui a une syntaxe proche de pandas certes mais et avec de pauvres performances.
 
-**Notez** qu'il y des porosités entre les packages mais impliquent des changements de type de tableaux et une clarté appauvrie de la technologie utilisée !
+> **Notez** qu'il y des porosités entre les packages mais impliquent des changements de type de tableaux et une clarté appauvrie de la technologie utilisée !
+
+> Pour modifier le tableau en place et ne pas le réaffecter, on peut utiliser `%<>%` du package `magrittr`. Cela fonctionne pour n'importe quel autre type de variable
 
 Exemple :
 
@@ -138,6 +145,8 @@ dt <- dt[, .(product_id, sales)] %>%
         .[, sales_tax := sales * 0.1] %>%
         .[, .(total_sales = sum(sales)), by = product_name]
 ```
+
+> PS : L'opérateur `:=` pour déclarer une nouvelle colonne dans un tableau `data.table` affecte le tableau initial. Il ne retourne pas un nouvel objet.
 
 ## Tests et Validation
 
