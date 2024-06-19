@@ -1,4 +1,4 @@
-# Documentation des Bonnes Pratiques en R
+# R : Bonne pratiques pour débutants
 
 ## Sommaire
 
@@ -244,4 +244,4 @@ Git est un système de contrôle de version distribué qui permet de suivre les 
     git merge <branch1> <branch2>
     ```
 
-> Chaque branche est parfaitement indépendante du reste. On peut donc y faire ce qu'on veut sans influence sur les autres travaux. On veillerai donc à supprimer les parties du code qui nous interesse pas
+> Chaque branche est parfaitement indépendante du reste. On peut donc y faire ce qu'on veut sans influence sur les autres travaux. On veillera donc à supprimer les parties du code qui nous interesse pas
