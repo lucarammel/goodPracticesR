@@ -8,11 +8,11 @@
 4. [Gestion des Paquets](#gestion-des-paquets)
    - 4.1 [Installation et Chargement des Paquets](#installation-et-chargement-des-paquets)
 5. [Manipulation et Analyse des Données](#manipulation-et-analyse-des-données)
-6. []
+6. [Packages classiques](#packages-utiles)
 7. [Tests et Validation](#tests-et-validation)
-   - 6.1 [Tests Unitaires avec testthat](#tests-unitaires-avec-testthat)
+   - 7.1 [Tests Unitaires avec testthat](#tests-unitaires-avec-testthat)
 8. [Collaborer avec Git et GitHub](#collaborer-avec-git-et-github)
-   - 7.1 [Introdution à Github](#introduction-à-git)
+   - 8.1 [Introdution à Github](#introduction-à-git)
 
 ## Du bon sens
 
@@ -162,6 +162,20 @@ dt <- dt[, .(product_id, sales)] %>%
 
 > Le soucis de ces syntaxes est que les noms des colonnes sont d'offices hardcodés et ne sont pas sous forme de variable. Pour se faire, on pourra utiliser `!!sym(var)` avec `dplyr` **et/ou** `get(var)` / `eval(var)` avec `data.table`
 
+## Packages utiles
+
+- **DataScience** : `dplyr` dans l'écosystème `tidyverse`, `data.table`
+- **Basde de données** : `DBI`
+- **Graphiques** : `plotly`, `ggplot2` 
+- **Date** : `lubridate`
+- **Formattage de string** : `glue` 
+- **Parallèlisation** : `foreach`, `parallel`
+- **Dashboard** : l'écosystème de `shiny`
+- **Operateur Pipes** : `magrittr`
+- **R Orienté Objet** : `R6`
+- **Calcul scientifique** : `MASS`, `zoo`, `mgcv`
+
+
 ## Tests et Validation
 
 ### Tests Unitaires avec testthat
@@ -189,7 +203,7 @@ L'utilisation de Git et GitHub est essentielle pour collaborer efficacement sur 
 
 ### Introduction à Git
 
-Git est un système de contrôle de version distribué qui permet de suivre les modifications apportées à un projet au fil du temps. Voici quelques commandes de base pour commencer avec Git :
+Git est petit logiciel qui permet de sauvegarder du code, tracer les modifications, gérer différentes modifications en même temps. Il est **INDISPENSABLE** dans le cycle de vie de n'importe quel projet de code.
 
 1. **Initialiser un dépôt Git :**
 
@@ -243,5 +257,7 @@ Git est un système de contrôle de version distribué qui permet de suivre les 
     ```bash
     git merge <branch1> <branch2>
     ```
+
+> Il existe une extension git sur Rstudio lors de la création d'un Rprojet.
 
 > Chaque branche est parfaitement indépendante du reste. On peut donc y faire ce qu'on veut sans influence sur les autres travaux. On veillera donc à supprimer les parties du code qui nous interesse pas
